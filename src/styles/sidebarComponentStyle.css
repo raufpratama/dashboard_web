@@ -48,17 +48,21 @@ hr {
 }
 
 .menu .navItem {
-  color: #BDBDBD;
   display: block;
   padding-top: 15px;
   padding-bottom: 15px;
-  padding-left: 25px;
+  padding-left: 10px;
 }
 
 .menu a.navItem:hover {
   background-color: #1e2528;
   text-decoration: none;
   color: #F5F5F5;
+}
+
+.menu #button_dash_collapse {
+  text-decoration: none;
+  color: #BDBDBD;
 }
 
 .menu a.navItem:active {
@@ -73,4 +77,8 @@ hr {
 .menu .dropdown {
   vertical-align: middle;
   margin-left: 75px;
+}
+
+.menu .toggle_item {
+  margin-left: 50px;
 }

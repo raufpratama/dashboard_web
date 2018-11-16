@@ -3,3 +3,9 @@
   background-color: #F5F5F5;
   font-weight: bold;
 }
+
+.context_header {
+  position: fixed;
+  width: 100%;
+  padding-right: 300px;
+}

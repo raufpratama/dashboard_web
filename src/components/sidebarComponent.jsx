@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { NavbarBrand, NavItem, NavLink } from 'reactstrap';
 import { FaAlignJustify } from 'react-icons/fa';
+import { MdArrowDropDown, MdArrowDropUp } from 'react-icons/md';
 import '../styles/sidebarComponentStyle.css';
 import logo from '../img/dash.png';
 let image = <img src={logo} width='130' height='40'/>
@@ -26,7 +27,7 @@ class SideBar extends Component {
         </div>
         <div className="menu">
           <a href="#" className="navItem">
-            <FaAlignJustify className="react-icons" size='15'/>  Dashboard
+            <FaAlignJustify className="react-icons" size='15'/>  Dashboard <MdArrowDropDown className="dropdown" size="15"/>
           </a>
         </div>
       </div>

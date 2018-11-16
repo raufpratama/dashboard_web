@@ -33,8 +33,8 @@ class Header extends Component {
   render() {
     const { modalVisible } = this.state;
     return (
-      <div>
-        <Navbar light expand="md" id='header' className="color_header">
+      <div className="context_header">
+        <Navbar color="dark" dark expand="md" id='header'>
           <NavbarBrand href="/">Dashboard</NavbarBrand>
           <Nav className="ml-auto" navbar>
             <Button color="danger" size="md" onClick={this._clickModal}>logout</Button>

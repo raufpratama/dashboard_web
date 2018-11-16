@@ -1,9 +1,9 @@
 .container {
     background-color: #2a373c;
     height: 100%; /* Full-height: remove this if you want "auto" height */
-    width: 300px; /* Set the width of the sidebar */
+    width: 250px; /* Set the width of the sidebar */
     position: fixed; /* Fixed Sidebar (stay in place on scroll) */
-    z-index: 1; /* Stay on top */
+    z-index: 99; /* Stay on top */
     top: 0; /* Stay at the top */
     left: 0;
     padding: 0px;
@@ -21,11 +21,12 @@
   margin-left: auto;
   margin-right: auto;
   padding-top: 10px;
-  width: 50%;
+  width: 55%;
 }
 
 .admin_user {
   padding:10px;
+  margin-top: 10px;
 }
 
 .caption_user {
@@ -38,7 +39,6 @@
 
 hr {
   width: 250px;
-  margin-left: 25px;
   background-color: grey;
 }
 
@@ -68,4 +68,9 @@ hr {
 .menu .react-icons {
   vertical-align: middle;
   margin-right: 5px;
+}
+
+.menu .dropdown {
+  vertical-align: middle;
+  margin-left: 75px;
 }

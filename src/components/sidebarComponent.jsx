@@ -35,7 +35,7 @@ class SideBar extends Component {
           <hr/>
         </div>
         <div className="menu">
-          <a href="#" className="navItem">
+          <a className="navItem">
             <Button color="link" id="button_dash_collapse" onClick={this.toggle}>
               <FaAlignJustify className="react-icons" size='15'/>  Dashboard  {this.state.collapse ? <MdArrowDropUp className="dropdown" size="20"/> : <MdArrowDropDown className="dropdown" size="20"/>}
             </Button>

@@ -42,7 +42,7 @@ class SideBar extends Component {
           </a>
           <Collapse isOpen={this.state.collapse}>
             <NavItem>
-              <NavLink href="/" className="toggle_item">mantap betul</NavLink>
+              <NavLink href="/" className="toggle_item">All data</NavLink>
             </NavItem>
             <NavItem>
               <NavLink href="/" className="toggle_item">mantap betul</NavLink>

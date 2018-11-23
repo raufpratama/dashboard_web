@@ -24,4 +24,14 @@ app.get('/get_data',(req,res)=> {
     })
 })
 
+app.get('/edit/:id',(req,res)=> {
+    User.find({_id:req.params.id},(err,response)=>{
+        if(!err) {
+            res.send(JSON.stringify(response));
+        } else {
+            console.log(`terjadi kesalahan ${err}`);
+        }
+    })
+})
+
 app.listen(port,()=>console.log(`berjalan pada port ${port}`));

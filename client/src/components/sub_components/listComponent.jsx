@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
-import { Col, Table } from 'reactstrap';
-import { mahasiswa } from '../data/datamahasiswa';
+import { Col, Table, Modal, ModalHeader, ModalBody, ModalFooter, Button } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { FaEdit, FaTrash } from 'react-icons/fa';
-import '../../styles/listComponentStyle.css';
 import axios from 'axios';
 
 class List extends Component {
     state = {
         data:[],
+        modalVisible:false,
     }
 
     componentDidMount = () => {
@@ -16,6 +15,12 @@ class List extends Component {
             .then(response =>this.setState({data:response.data}))
             .catch(err=>console.log(`terjadi error ${err}`));
     }
+
+    _deleteData = () => {
+        axios.post('/detele_data')
+    }
+
+    _openModal = () => this.setState({modalVisible:!this.state.modalVisible})
 
     render() {
         const {data} = this.state;
@@ -40,13 +45,26 @@ class List extends Component {
                                     <td>{datas.umur}</td>
                                     <td>{datas.pendidikan}</td>
                                     <td>{datas.alamat}</td>
-                                    <td><Link to="/crot"><button className="btn btn-success btn-sm"><FaEdit/></button></Link>{' '}
-                                        <Link to="/crot"><button className="btn btn-danger btn-sm"><FaTrash/></button></Link>
+                                    <td><Link to={`/edit/${datas._id}`}><button className="btn btn-success btn-sm"><FaEdit/></button></Link>{' '}
+                                        <button onClick={this._openModal} className="btn btn-danger btn-sm"><FaTrash/></button>
                                     </td>
                                 </tr>
                             ))}
                         </tbody>
                     </Table>
+                    <Button color="info" size="md">Add</Button>
+                    <Modal isOpen={this.state.modalVisible} toggle={this._openModal}>
+                        <ModalHeader>
+                            Attention
+                        </ModalHeader>
+                        <ModalBody>
+                            Are you sure to delete this data ?
+                        </ModalBody>
+                        <ModalFooter>
+                            <Button color="success" size="md">YES</Button>
+                            <Button color="warning" onClick={this._openModal} size="md">NO</Button>
+                        </ModalFooter>
+                    </Modal>
                 </Col>
             </div>
         )

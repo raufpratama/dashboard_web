@@ -10,3 +10,9 @@
     padding: 0px;
     overflow-x: hidden; /* Disable horizontal scroll */
 }
+
+.route {
+  padding:10px;
+  padding-top: 80px;
+  padding-bottom: 30px;
+}

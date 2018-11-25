@@ -34,4 +34,58 @@ app.get('/edit/:id',(req,res)=> {
     })
 })
 
+app.post('/edit/:id',(req,res)=>{
+    let id = req.params.id;
+    let objekku = {
+        nama:req.body.nama,
+        umur:req.body.umur,
+        pendidikan:req.body.pendidikan,
+        alamat:req.body.alamat,
+    }
+    User.findById(id,(err,user)=> {
+        if(!err) {
+            const { nama, umur, pendidikan, alamat} = objekku;
+            user.set({nama,umur,pendidikan,alamat});
+            user.save((err,updated)=>{
+                if(!err) {
+                    console.log(`updated ${updated}`)
+                } else {
+                    console.log(`terjadi kesalahan ${err}`)
+                }
+            })
+        } else {
+            console.log(`terjadi kesalahann ${err}`);
+        }
+    })
+})
+
+app.post('/add_user',(req,res)=> {
+    let data_user = {
+        nama:req.body.nama,
+        umur:req.body.umur,
+        pendidikan:req.body.pendidikan,
+        alamat:req.body.alamat,
+    }
+    const {nama,umur,pendidikan,alamat} = data_user;
+
+    User.insertMany([{nama,umur,pendidikan,alamat}],(err,respon)=> {
+        if(!err) {
+            res.status(200).send(`berhasil menambahkan data ${respon}`)
+        } else {
+            console.log(`terjadi kesalahan ${err}`)
+        }
+    })
+})
+
+app.post('/delete_user',(req,res)=>{
+    let _id = req.body._id;
+    User.findByIdAndDelete({_id},(err,respon)=>{
+        if(!err) {
+            res.send({status:200})
+        } else {
+            console.log(`terjadi kesalahan ${err}`)
+        }
+    })
+})
+
 app.listen(port,()=>console.log(`berjalan pada port ${port}`));

@@ -5,10 +5,15 @@ import { MdArrowDropDown, MdArrowDropUp } from 'react-icons/md';
 import '../styles/sidebarComponentStyle.css';
 import logo from '../img/dash.png';
 let image = <img src={logo} width='130' height='40'/>
+let babi = "http://www.urbannews.co.id/wp-content/uploads/2014/12/6-Masalah-Kesehatan-Terdapat-di-Daging-Babi-770x470.jpg";
 
 class SideBar extends Component {
-  state = {
-    collapse:false,
+  constructor(props){
+    super(props);
+    this.state = {
+      collapse:false,
+      data_user:props.data_user,
+    }
   }
 
   toggle = () => {
@@ -17,19 +22,21 @@ class SideBar extends Component {
     });
   }
   render() {
+    const {data_user} = this.state;
     return (
       <div className="container">
         <div className="title_container">
+          {console.log(this.state.data_user)}
           <div className="title">
             <NavbarBrand>{image}</NavbarBrand>
           </div>
         </div>
         <div>
           <div className="admin_user">
-            <img src={'https://i.pinimg.com/originals/be/a5/9f/bea59f571a410a47cd78e513d6b46548.jpg'} width='65' height='65' className="img-circle"/>
+            <img src={babi} width='65' height='65' className="img-circle"/>
             <div className="caption_user">
-              <strong>Kaneki Ken</strong>
-              <p>Administrator</p>
+              <strong>{data_user.username}</strong>
+              <p>{data_user.email}</p>
             </div>
           </div>
           <hr/>

@@ -3,8 +3,6 @@ import { Form, FormGroup, Col, Input, Button } from 'reactstrap';
 import { withRouter } from 'react-router-dom';
 import axios from 'axios';
 import { toast, ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.min.css'; 
-import 'react-toastify/dist/ReactToastify.css'
 
 class Add extends Component {
     constructor(props) {

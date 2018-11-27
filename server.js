@@ -2,10 +2,12 @@ const express = require('express');
 const app = express();
 const bodyParse = require('body-parser');
 const mongoose = require('mongoose');
+const process = require('./nodemon.json');
 const port = process.env.PORT || 5000;
 const User = require('./schema/userLengkapSchema');
+const Detail = require('./schema/detailSchema');
 
-mongoose.connect('mongodb://localhost/db_user',{useNewUrlParser:true});
+mongoose.connect('mongodb://raufpratama:'+process.env.MONGODB_PASSWORD+'@projek01-shard-00-00-ueikz.mongodb.net:27017,projek01-shard-00-01-ueikz.mongodb.net:27017,projek01-shard-00-02-ueikz.mongodb.net:27017/test?ssl=true&replicaSet=Projek01-shard-0&authSource=admin&retryWrites=true',{useNewUrlParser:true});
 let db = mongoose.connection;
 
 db.on('error',()=> console.log('terjadi kesalahan'));
@@ -84,6 +86,17 @@ app.post('/delete_user',(req,res)=>{
             res.send({status:200})
         } else {
             console.log(`terjadi kesalahan ${err}`)
+        }
+    })
+})
+
+app.post('/login_user',(req,res)=>{
+    Detail.find({username:req.body.username,password:req.body.password}).exec((err,detail)=>{
+        if(!err) {
+            console.log(detail);
+            res.status(200).json({detail});
+        } else {
+            res.status(400).json({message:`terjadi kesalahan pada server ${err}`});
         }
     })
 })

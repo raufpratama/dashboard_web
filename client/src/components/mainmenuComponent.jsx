@@ -7,21 +7,17 @@ import Add from './sub_components/addComponent';
 import List from './sub_components/listComponent';
 import '../styles/mainmenuComponentStyle.css';
 
-class MainMenu extends Component {
-  render() {
-    return (
-      <Router>
-        <div id="mainmenu">
-          <Header/>
-          <div className="route">
-            <Route exact path="/" component={List}/>
-            <Route path="/edit/:id" component={Edit}/>
-            <Route path="/add_user" component={Add}/>
+const MainMenu = () => (
+        <Router>
+          <div id="mainmenu">
+            <Header/>
+            <div className="route">
+              <Route exact path="/" component={List}/>
+              <Route path="/edit/:id" component={Edit}/>
+              <Route path="/add_user" component={Add}/>
+            </div>
           </div>
-        </div>
-      </Router>
-    )
-  }
-}
+        </Router>
+    );
 
 export default MainMenu;

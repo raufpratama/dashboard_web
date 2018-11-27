@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 
 const userLengkapSchema = mongoose.Schema(
     {
+        _id:mongoose.Schema.Types.ObjectId,
         nama: {
             type:String,
             required:true

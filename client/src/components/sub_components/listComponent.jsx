@@ -4,8 +4,7 @@ import { Link } from 'react-router-dom';
 import { FaEdit, FaTrash } from 'react-icons/fa';
 import { toast, ToastContainer } from 'react-toastify';
 import axios from 'axios';
-import 'react-toastify/dist/ReactToastify.min.css'; 
-import 'react-toastify/dist/ReactToastify.css'
+import '../../styles/listComponentStyle.css';
 
 class List extends Component {
     constructor(props) {
@@ -23,7 +22,6 @@ class List extends Component {
         axios.get('/get_data')
             .then(response =>{
                 this.setState({data:response.data})
-                
             })
             .catch(err=>console.log(`terjadi error ${err}`));
             
